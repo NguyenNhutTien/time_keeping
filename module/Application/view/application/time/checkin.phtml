@@ -1,0 +1,147 @@
+<style>
+    .error{
+        color: red;
+    }
+</style>
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card card-plain">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Huỳnh Công Trạng - 1651120140</h4>
+                <p class="card-category"></b></p>
+            </div>
+            <div class="row">
+                <form method="post">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Check in photo</h4>
+                                <b>Ngày : <?php echo date('d-m-Y'); ?></b>
+                            </div>
+                            <?php if (!empty($this->success)): ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?php echo $this->success ?>
+                                </div>
+                            <?php elseif (!empty($this->error)): ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php echo $this->error ?>
+                                </div>
+                            <?php endif; ?>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card card-chart">
+                                            <video class="video-cam" id="video" playsinline autoplay></video>
+                                            <input type="text" class="hidden" id="long" name="long">
+                                            <input type="text" class="hidden" id="lat" name="lat">
+                                            <span>Long : <b id="long_location"></b></span>
+                                            <span>lat : <b id="lat_location"></b></span>
+                                            <i id="error_location" class="error"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-chart">
+                                            <input type="text" class="hidden" id="img1" name="img1">
+                                            <canvas id="canvas" width="480" height="360"></canvas>
+                                            <button type="button" class="btn btn-primary btn-sm" id="snap">Photo 1</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-chart">
+                                            <canvas id="canvas2" width="480" height="360"></canvas>
+                                            <input type="text" class="hidden" id="img2" name="img2">
+                                            <button type="button" class="btn btn-primary btn-sm" id="snap2">Photo 2</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" >Check in</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    'use strict';
+    const video = document.getElementById('video');
+    var canvas = document.getElementById('canvas');
+    var canvas2 = document.getElementById('canvas2');
+    const snap = document.getElementById('snap');
+    const snap2 = document.getElementById('snap2');
+    const errorMsgElement = document.getElementById('spanErrorMsg');
+    const constraints = {
+        audio: true,
+        video: {
+            width: 1280, height: 720
+        }
+    };
+    async function init() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia(constraints);
+            handleSucess(stream);
+        } catch (e) {
+            alert('Please Open camera');
+            errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+        }
+    }
+
+    function handleSucess(stream) {
+        window.stream = stream;
+        video.srcObject = stream;
+    }
+    init();
+
+    snap.addEventListener("click", function () {
+        var mime_type = "image/jpeg";
+        canvas.width = 800;
+        canvas.height = Math.round(video.videoHeight / (video.videoWidth / 800) * 100) / 100;
+        canvas.getContext('2d').
+                drawImage(video, 0, 0, canvas.width, canvas.height);
+        canvas = canvas.toDataURL(mime_type, 40 / 100);
+        document.getElementById("img1").value = canvas;
+        return false;
+    });
+    snap2.addEventListener("click", function () {
+        var mime_type = "image/jpeg";
+        canvas2.width = 800;
+        canvas2.height = Math.round(video.videoHeight / (video.videoWidth / 800) * 100) / 100;
+        canvas2.getContext('2d').
+                drawImage(video, 0, 0, canvas2.width, canvas2.height);
+        canvas2 = canvas2.toDataURL(mime_type, 40 / 100);
+        document.getElementById("img2").value = canvas2;
+        return false;
+    });
+</script>
+<script>
+    var long = document.getElementById("long_location");
+    var lat = document.getElementById("lat_location");
+    var error_location = document.getElementById("error_location");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            error_location.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        long.innerHTML = position.coords.longitude;
+        document.getElementById("long").value = position.coords.longitude;
+        lat.innerHTML = position.coords.latitude;
+        document.getElementById("lat").value = position.coords.latitude;
+    }
+    getLocation();
+</script>
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+            if(<?php echo $this->is_check_in?>){
+                alert('Bạn đã check in hôm nay rồi.');
+                e.preventDefault();
+            }
+        });
+    });
+</script>

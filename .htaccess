@@ -1,0 +1,8 @@
+Options -Indexes
+RewriteEngine On
+RewriteCond $1 !^(robots\.txt)
+RewriteRule ^(.*)$ /public/$1 [NC,L]
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteCond %{THE_REQUEST} !HTTP/1.1$
+RewriteRule .* - [F]
+

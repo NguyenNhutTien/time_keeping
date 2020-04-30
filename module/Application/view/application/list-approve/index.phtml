@@ -1,0 +1,284 @@
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header card-header-primary tap-search">
+                    <h4 class="card-title mt-0">Search</h4>
+                </div>
+                <div class="card-body tap-search-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Email</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Code</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" id="" title="team">
+                                        <option>Team</option>
+                                        <option>Technology</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" id="" name="title">
+                                        <option>Title</option>
+                                        <option>PHP Dev</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Month</label>
+                                    <input type="text" class="form-control date" value="03/2020">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search<div class="ripple-container"></div></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <h6>Xác nhận phép</h6>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="">
+                            <th>
+                                Code
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Team
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Loại phép
+                            </th>
+                            <th>
+                                Số ngày
+                            </th>
+                            <th>
+                                Lý do xin nghĩ
+                            </th>
+                            <th>
+                                Trạng thái
+                            </th>
+                            <th>
+                                Hành động
+                            </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        Huỳnh Công Trạng
+                                    </td>
+                                    <td>
+                                        Tech
+                                    </td>
+                                    <td>
+                                        PHP Dev
+                                    </td>
+                                    <td>
+                                        Kết hôn
+                                    </td>
+                                    <td>
+                                        3 ngày(3/2/2020-4/2/2022)
+                                    </td>
+                                    <td>
+                                        Chị mẹ kh
+                                    </td>
+                                    <td>
+                                        Chưa xác nhận
+                                    </td>
+                                    <td>
+                                        <span class="material-icons btn-hover" style="color: green" title="Đồng ý">library_add_check</span>
+                                        <span class="material-icons btn-hover" style="color: red" title="Không đồng ý">clear</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <h6>Xác nhận công</h6>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="">
+                            <th>
+                                Code
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Team
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Những ngày cần xác nhận công
+                            </th>
+                            <th>
+                                Những ngày cần xác nhận đi trể/sớm
+                            </th>
+                            <th>
+                                Hành động
+                            </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        Huỳnh Công Trạng
+                                    </td>
+                                    <td>
+                                        Tech
+                                    </td>
+                                    <td>
+                                        PHP Dev
+                                    </td>
+                                    <td>
+                                        1,2,3,4,5
+                                    </td>
+                                    <td>
+                                        6,7,8,9
+                                    </td>
+                                    <td>
+                                        <span class="material-icons btn-hover" style="color: green" title="Đồng ý">library_add_check</span>
+                                        <span class="material-icons btn-hover" style="color: red" title="Không đồng ý">clear</span>
+                                        <span onclick="document.getElementById('modal-show').style.display = 'block'" class="material-icons btn-hover" style="color: gray" title="Chi tiết">visibility</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--form detail-->
+        <div id="modal-show" class="modal-show1">
+            <div class="modal-content-show animate-show">
+                <div class="imgcontainer-close">
+                    <span onclick="document.getElementById('modal-show').style.display = 'none'" class="close-show"
+                          title="Close Modal">&times;</span>
+                </div>
+
+                <div class="container-show">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" id="trang" href="javascript:;">List approve</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h5 class="card-title ">Huỳnh Công Trạng - 2566621</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                    <th>
+                                        Ngày
+                                    </th>
+                                    <th>
+                                        Giờ vào
+                                    </th>
+                                    <th>
+                                        Giờ ra
+                                    </th>
+                                    <th>
+                                        Ngày công
+                                    </th>
+                                    <th>
+                                        Nội dung
+                                    </th>
+                                    <th>
+                                        Lý do
+                                    </th>
+                                    <th>
+                                        Hành động
+                                    </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                01/04/2020
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td>
+                                                Công tác ngoài
+                                            </td>
+                                            <td>
+                                                
+                                            </td>
+                                            <td>
+                                                <span class="material-icons btn-hover" style="color: green" title="Đồng ý">library_add_check</span>
+                                                <span class="material-icons btn-hover" style="color: red" title="Không đồng ý">clear</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('modal-show');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

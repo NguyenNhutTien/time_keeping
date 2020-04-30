@@ -1,0 +1,471 @@
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header card-header-primary tap-search">
+                    <h4 class="card-title mt-0">Search</h4>
+                </div>
+                <div class="card-body tap-search-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Email</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Code</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" id="" title="team">
+                                        <option>Team</option>
+                                        <option>Technology</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" id="" name="title">
+                                        <option>Title</option>
+                                        <option>PHP Dev</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Month</label>
+                                    <input type="text" class="form-control date" value="03/2020">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search<div class="ripple-container"></div></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                            <th>
+                                Code
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Team
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Ngày đi làm
+                            </th>
+                            <th>
+                                Số ngày phép
+                            </th>
+                            <th>
+                                Nghĩ quá hạng
+                            </th>
+                            <th>
+                                Hành động
+                            </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        123
+                                    </td>
+                                    <td>
+                                        Trạng
+                                    </td>
+                                    <td>
+                                        Tech
+                                    </td>
+                                    <td>
+                                        PHP Dev
+                                    </td>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        <span class="material-icons" style="color: green">done</span>
+                                    </td>
+                                    <td>
+                                        <span onclick="document.getElementById('modal-show').style.display = 'block'" class="material-icons btn-hover" style="color: gray" title="Chi tiết">visibility</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-show" class="modal-show1">
+            <div class="modal-content-show animate-show">
+                <div class="imgcontainer-close">
+                    <span onclick="document.getElementById('modal-show').style.display = 'none'" class="close-show"
+                          title="Close Modal">&times;</span>
+                </div>
+
+                <div class="container-show">
+                    <div class="navbar-wrapper">
+                        <a class="navbar-brand" id="trang" href="javascript:;">Staff time</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h5 class="card-title ">Huỳnh Công Trạng - 2566621</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                    <th>
+                                        Ngày đi làm
+                                    </th>
+                                    <th>
+                                        Ngày off
+                                    </th>
+                                    <th>
+                                        Số lần quên chấm công
+                                    </th>
+                                    <th>
+                                        Tổng thời gian đi trể
+                                    </th>
+                                    <th>
+                                        Số ngày phạt
+                                    </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                0
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                1:15
+                                            </td>
+                                            <td class="text-primary">
+                                                0.5
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                    <th>
+                                        Ngày
+                                    </th>
+                                    <th>
+                                        Check in
+                                    </th>
+                                    <th>
+                                        Check out
+                                    </th>
+                                    <th>
+                                        Loai công
+                                    </th>
+                                    <th>
+                                        Lý do
+                                    </th>
+                                    <th>
+                                        Trạng thái
+                                    </th>
+                                    <th>
+                                        Hành động
+                                    </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Thứ hai, 01/04/2020
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td >
+
+                                            </td>
+                                            <td >
+                                                Trể 2p
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                        <div class="ripple-container"></div></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start">
+                                                        <a class="dropdown-item" href="#">Xoá công</a>
+                                                        <a class="dropdown-item" href="#">Bù công</a>
+                                                        <a class="dropdown-item" href="#">Bổ sung công</a>
+                                                        <a class="dropdown-item" href="#">Đăng kí phép</a>
+                                                    </div>
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                Thứ hai, 01/04/2020
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td >
+
+                                            </td>
+                                            <td >
+                                                Trể 2p
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                        <div class="ripple-container"></div></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start">
+                                                        <a class="dropdown-item" href="#">Xoá công</a>
+                                                        <a class="dropdown-item" href="#">Bù công</a>
+                                                        <a class="dropdown-item" href="#">Bổ sung công</a>
+                                                        <a class="dropdown-item" href="#">Đăng kí phép</a>
+                                                    </div>
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                Thứ hai, 01/04/2020
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td >
+
+                                            </td>
+                                            <td >
+                                                Trể 2p
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                        <div class="ripple-container"></div></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start">
+                                                        <a class="dropdown-item" href="#">Xoá công</a>
+                                                        <a class="dropdown-item" href="#">Bù công</a>
+                                                        <a class="dropdown-item" href="#">Bổ sung công</a>
+                                                        <a class="dropdown-item" href="#">Đăng kí phép</a>
+                                                    </div>
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                Thứ hai, 01/04/2020
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td >
+
+                                            </td>
+                                            <td >
+                                                Trể 2p
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                        <div class="ripple-container"></div></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start">
+                                                        <a class="dropdown-item" href="#">Xoá công</a>
+                                                        <a class="dropdown-item" href="#">Bù công</a>
+                                                        <a class="dropdown-item" href="#">Bổ sung công</a>
+                                                        <a class="dropdown-item" href="#">Đăng kí phép</a>
+                                                    </div>
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                Thứ hai, 01/04/2020
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td >
+
+                                            </td>
+                                            <td >
+                                                Trể 2p
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                        <div class="ripple-container"></div></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start">
+                                                        <a class="dropdown-item" href="#">Xoá công</a>
+                                                        <a class="dropdown-item" href="#">Bù công</a>
+                                                        <a class="dropdown-item" href="#">Bổ sung công</a>
+                                                        <a class="dropdown-item" href="#">Đăng kí phép</a>
+                                                    </div>
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                Thứ hai, 01/04/2020
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td >
+
+                                            </td>
+                                            <td >
+                                                Trể 2p
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                        <div class="ripple-container"></div></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start">
+                                                        <a class="dropdown-item" href="#">Xoá công</a>
+                                                        <a class="dropdown-item" href="#">Bù công</a>
+                                                        <a class="dropdown-item" href="#">Bổ sung công</a>
+                                                        <a class="dropdown-item" href="#">Đăng kí phép</a>
+                                                    </div>
+                                                </div> 
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>
+                                                Thứ hai, 01/04/2020
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                17:35
+                                            </td>
+                                            <td>
+                                                1 ngày công
+                                            </td>
+                                            <td >
+
+                                            </td>
+                                            <td >
+                                                Trể 2p
+                                            </td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                        <div class="ripple-container"></div></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="top-start">
+                                                        <a class="dropdown-item" href="#">Xoá công</a>
+                                                        <a class="dropdown-item" href="#">Bù công</a>
+                                                        <a class="dropdown-item" href="#">Bổ sung công</a>
+                                                        <a class="dropdown-item" href="#">Đăng kí phép</a>
+                                                    </div>
+                                                </div> 
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('modal-show');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

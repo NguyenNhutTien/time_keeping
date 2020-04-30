@@ -1,0 +1,28 @@
+<?php
+$cache = Zend\Cache\StorageFactory::factory([
+            'adapter' => [
+                'name' => 'filesystem',
+                'options' => ['ttl' => 3600],
+            ],
+            'plugins' => [
+                // Don't throw exceptions on cache errors
+                'exception_handler' => [
+                    'throw_exceptions' => false
+                ],
+            ],
+        ]);
+$menu = $cache->getItem('menu')
+?>
+<ul class="nav">
+    <?php if (isset($menu)):?>
+        <?php $menu = json_decode($menu);
+        foreach ($menu as $item): ?>
+            <li class="nav-item <?php echo (isset($this->title) && $this->title == $item->name) ? 'active' : '' ?>">
+                <a class="nav-link" href="<?php echo (empty($item->url)) ? HOST : (HOST . $item->url); ?>">
+                    <i class="material-icons"><?php echo $item->class_icon ?></i>
+                    <p><?php echo $item->name ?></p>
+                </a>
+            </li>
+    <?php endforeach;
+endif; ?>
+</ul>

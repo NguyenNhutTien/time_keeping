@@ -1,0 +1,280 @@
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="card card-plain">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Thống kê</h4>
+                <p class="card-category">+ Tổng số phép năm trong kì: <b class="total_leave"></b></p>
+                <p class="card-category">+ Tổng số ngày phép năm đã sử dụng: <b>2</b></p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Tổng quỹ phép năm trong kỳ</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <?php
+                                    $from = date_create($this->leave_time['from']); //->format('m-Y');
+                                    $to = date_create($this->leave_time['to']); //->format('m-Y');
+                                    $day_current = $from;
+                                    while ($day_current < $to) {
+                                        echo "<th>Tháng " . $day_current->format('m/Y') . "</th>";
+                                        $time = strtotime($day_current->format('Y-m-d'));
+                                        $final = date("Y-m-d", strtotime("+1 month", $time));
+                                        $day_current = date_create($final);
+                                    }
+                                    ?>
+                                <th>
+                                    Phép thâm niên
+                                </th>
+                                <th>
+                                    Tổng cộng
+                                </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <?php if(isset($this->staff_contract) && !empty($this->staff_contract)){
+                                            $total_leave_contract = 0 ;
+                                            $year = date_create($this->staff_contract['from'])->format('Y');                                    
+                                            if($year < date('Y')){
+                                                $day_current = $from;
+                                                while ($day_current < $to) {
+                                                    if($day_current->format('m') <= date('m')){
+                                                        echo "<td>1</td>";
+                                                        $total_leave_contract++;
+                                                    }else echo "<td>0</td>";
+                                                    
+                                                    $time = strtotime($day_current->format('Y-m-d'));
+                                                    $final = date("Y-m-d", strtotime("+1 month", $time));
+                                                    $day_current = date_create($final);
+                                                }
+                                            }else if($year == date('Y')){
+                                                $month = date_create($this->staff_contract['from'])->format('m');                                    
+                                                $day = date_create($this->staff_contract['from'])->format('d');
+                                                
+                                                $day_current = $from;
+                                                while ($day_current < $to) {
+                                                    if($month <= $day_current->format('m') && $day_current->format('m') <= date('m')){
+                                                        if($day < 15 && $month==$day_current->format('m')){
+                                                            echo "<td>1</td>";
+                                                            $total_leave_contract++;
+                                                    }else if($day >= 15 && $month==$day_current->format('m')){
+                                                        echo "<td>0</td>";
+                                                    }else if($month<=$day_current->format('m')){
+                                                            echo "<td>1</td>";
+                                                            $total_leave_contract++;
+                                                    }
+                                                    }else echo "<td>0</td>";
+                                                    $time = strtotime($day_current->format('Y-m-d'));
+                                                    $final = date("Y-m-d", strtotime("+1 month", $time));
+                                                    $day_current = date_create($final);
+                                                }
+                                            }
+                                        }?>
+                                        <td>
+                                            <?php if(isset($this->staff_contract_last) && !empty($this->staff_contract_last)){
+                                                if((date('Y') - date_create($this->staff_contract_last['from'])->format('Y')) >= 5){
+                                                    echo "1";
+                                                    $total_leave_contract++;
+                                                }else echo "0";
+                                            }?>
+                                        </td>
+                                        <td>
+                                            <?php echo $total_leave_contract;?>
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Phép năm đã sử dụng theo tháng</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Tháng 01/2020
+                                </th>
+                                <th>
+                                    Tháng 02/2020
+                                </th>
+                                <th>
+                                    Tháng 03/2020
+                                </th>
+                                <th>
+                                    Tháng 04/2020
+                                </th>
+                                <th>
+                                    Tháng 05/2020
+                                </th>
+                                <th>
+                                    Tháng 06/2020
+                                </th>
+                                <th>
+                                    Tháng 07/2020
+                                </th>
+                                <th>
+                                    Tháng 08/2020
+                                </th>
+                                <th>
+                                    Tháng 09/2020
+                                </th>
+                                <th>
+                                    Tháng 10/2020
+                                </th>
+                                <th>
+                                    Tháng 11/2020
+                                </th>
+                                <th>
+                                    Tháng 12/2020
+                                </th>
+                                <th>
+                                    Tổng cộng
+                                </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Phép năm đã đăng ký & sử dụng</h4>
+                    </div>
+                    <br>
+                    <form class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label class="bmd-label-floating">Month</label>
+                            <input type="text" class="form-control date" value="03/2020">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Từ ngày
+                                </th>
+                                <th>
+                                    Đến ngày
+                                </th>
+                                <th>
+                                    Tổng số ngày
+                                </th>
+                                <th>
+                                    Nhóm phép
+                                </th>
+                                <th>
+                                    Loại phép
+                                </th>
+                                <th>
+                                    Lý do
+                                </th>
+                                <th>
+                                    Tình Trạng
+                                </th>
+                                <th>
+                                    Ghi chú
+                                </th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+       $('.total_leave').text(<?php echo $total_leave_contract?>);
+    });
+</script>
