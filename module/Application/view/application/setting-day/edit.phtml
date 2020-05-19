@@ -1,0 +1,119 @@
+<?php date_default_timezone_set('Asia/Ho_Chi_Minh');?>
+<div id="modal-show" class="modal-show1" style="display: block">
+    <div class="modal-content-show2 animate-show">
+        <div class="imgcontainer-close">
+            <a href="/setting-day"><span class="close-show" title="Close Modal">&times;</span></a>
+        </div>
+
+        <div class="container-show">
+            <div class="navbar-wrapper">
+                <a class="navbar-brand" id="trang" href="javascript:;">Edit special day</a>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="isHalfDay" value="0" <?php echo ($settingDay->half_day == 0)? "checked" : "" ?> onclick="display(0)">Whole day
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="isHalfDay" value="1" <?php echo ($settingDay->half_day != 0)? "checked" : "" ?>  onclick="display(1)">Half day
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="from-to-day" <?php echo ($settingDay->half_day !=0) ? 'style="display:none"' : '' ?>>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">From day</label>
+                                <input type="text" class="form-control datepicker dpk" name="from_day" required="required" value="<?php echo $settingDay->from; ?>">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">To day</label>
+                                <input type="text" class="form-control datepicker dpk" name="to_day" required="required" value="<?php echo $settingDay->to; ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="haft-day" <?php echo ($settingDay->half_day !=0) ? 'style="display:block"' : '' ?>>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Day</label>
+                                <input type="text" class="form-control datepicker dpk" name="aDay" required="required" value="<?php echo $settingDay->from; ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="type-day">Type day</label>
+                                <select class="form-control" id="type-day" name="type-day">
+                                    <option value="1" <?php echo ($settingDay->type == 1)? "selected" : "" ?>>Saturday</option>
+                                    <option value="2" <?php echo ($settingDay->type == 2)? "selected" : "" ?>>Holiday</option>
+                                    <option value="3" <?php echo ($settingDay->type == 3)? "selected" : "" ?>>Any day</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-check">
+                                <input class="offDay" type="checkbox" value="1" name="offDay" <?php echo ($settingDay->off_date == 1)? "checked" : "" ?> > Off day
+                            </div>
+                            <div class="form-group day-session" <?php echo ($settingDay->half_day !=0) ? 'style="display:block"' : '' ?>>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="day-session" value="2" <?php echo ($settingDay->half_day == 2)? "checked" : "" ?>>Morning
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="day-session" value="1" <?php echo ($settingDay->half_day == 1)? "checked" : "" ?>>Afternoon
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="bmd-label-floating">Note</label>
+                                <textarea required="required" class="form-control" rows="5" name="note"><?php echo $settingDay->note ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Edit day</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function display(x) {
+        if (x == 0) {
+            $("#from-to-day").show(500);
+            $("#haft-day").hide(500);
+            $('.day-session').fadeOut('slow');
+        } else {
+            $("#from-to-day").hide(500);
+            $("#haft-day").show(500);
+            $('.day-session').fadeIn('slow');
+        }
+    }
+</script>
+
+<script>
+    var dateToday = new Date();
+    $(".dpk").datepicker({
+        showButtonPanel: true,
+        minDate: dateToday,
+        changeMonth: false,
+    });
+</script>
+

@@ -11,7 +11,7 @@
  * control, so do not include passwords or other sensitive information in this
  * file.
  */
-  
+
 return [
     'session_config' => [
         'cookie_lifetime' => 60 * 60 * 3,
@@ -23,5 +23,11 @@ return [
     ],
     'session_storage' => [
         'type' => SessionArrayStorage::class,
+    ],
+    'db' => [
+        'driver' => 'Pdo',
+        'dsn' => 'mysql:dbname=time_keeping;host=localhost',
+        'username' => 'root',
+        'password' => ''
     ],
 ];

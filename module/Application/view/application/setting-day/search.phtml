@@ -12,7 +12,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Day</label>
-                                    <input type="text" class="form-control datepicker search" name="search" id="search" value="<?= date("m/d/Y") ?>">
+                                    <input type="text" class="form-control datepicker search" name="search" id="search" value="<?= $search ?>">
                                 </div>
                             </div>
                         </div>
@@ -22,6 +22,9 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
+            <a href="<?php echo $this->url('setting-day', ['action' => 'index']); ?>" type="button" class="btn btn-success"><span class="material-icons" style="color:#FFF">refresh</span> Refresh</a>
         </div>
         <div class="col-md-12">
             <h6>List</h6>

@@ -12,8 +12,8 @@
  */
 define("APP_PATH", realpath(dirname(__FILE__) . '/../'));
 return [
-    'Zend\Log',
     'Zend\Db',
+    'Zend\Log',
     'Zend\ServiceManager\Di',
     'Zend\Mvc\Plugin\FilePrg',
     'Zend\Mvc\Plugin\FlashMessenger',
